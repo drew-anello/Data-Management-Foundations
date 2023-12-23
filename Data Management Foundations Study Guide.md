@@ -250,3 +250,115 @@ All data in relational database is structured in tables
 - Integer - Data types represent positive and negative numbers. Several kind exist based on number of bytes needed to allocate for each value
 	- INT - implemented as 4 bytes of storage
 	- SMALLINT - implemented as 2 bytes of storage 
+	  
+- DECIMAL stores fractional numeric values, 
+	- Decimal - Exact decimal number where M = number of significant digits, D = number of digits after decimal point
+	- FLOAT - 4 bytes
+	  
+- Character - data type represent textual characters
+	- VARCHAR - A string of variable length up to specified maximum
+	- CHAR - a fixed string of characters
+  
+- DATE stores year, month and day
+	- Date - YYYY-MM-DD. Range: '1000-01-01' - '9999-12-31
+	- Time - Format: hh:mm:ss
+	- DATETIME - 2/25/2020 10:35:00
+
+
+#### MySQL Data types
+
+INTEGER 
+- TINYINT - 1 byte
+- SMALLINT - 2 bytes
+- MEDIUMINT - 3 bytes
+- INTEGER or INT - 4 bytes
+- BIGINT - 8 bytes
+
+
+
+## SELECTING ROWS 
+
+#### Operators 
+*A symbol that computes a value from one or more values called operands*
+
+
+| Type | Operator | Description | Example | Value |
+|:-|:-:|:-:|:-:|-:|
+|Arithmetic| +| adds two numeric values| 4 + 3| 7|
+|Arithmetic| - (unary)| reverse the sign of one numeric value| -(-2)|2|
+|Arithmetic| - (binary)|subtracts one numeric value from another| 11 - 5|6|
+|Arithmetic| * | Multiplies two numeric values| 5 * 3 | 15|
+|Arithmetic| / | divides one numeric value by another| 4 / 2| 2|
+|Arithmetic| % (modulo)| divides one numeric value by another and returns the integer remainder| 5 % 2| 1|
+|Arithmetic| ^| raises one numeric value to the power of another| 5 ^ 2| 25|
+|Comparison| =| compares two values for equality| 1 = 2| FALSE|
+|Comparison| != |compares two values for inequality| 1 != 2| TRUE|
+|Comparison|<| compares two values with <|2 < 2 | FALSE|
+|Comparison|<=| compares two values with < = to| 2 <= 2  |TRUE|
+|Comparison|>| compares two values with >| 3 > 3| FALSE|
+|Comparison|>=|Compares two values with > = |'apple' >= 'Banana'|False|
+|Logical|AND|Returns TRUE only when both values are TRUE| TRUE AND FALSE|FALSE|
+|Logical|OR|Returns FALSE only when both values are FALSE| TURE OR FALSE|TRUE|
+|Logical|NOT| Reverse a logical value| NOT FALSE|TRUE|
+
+
+## INSERTING, UPDATING, AND DELETING ROWS
+
+#### INSERT
+*Adds rows to a table. INSERT statement has two clauses*
+
+- INSERT INTO clause names the table and columns where data to be added. INTO keyword is optional 
+- VALUES clause specifies the column values to be added. Values may list any number of rows in parentheses to insert multiple rows
+  
+```sql
+INSERT [INTO] TableName (Column1, Column2, ...) VALUES (Value1, Value2...);
+```
+
+#### UPDATE
+*Modifies existing rows in the table. Uses the SET clause to specify the new column values*
+
+```sql 
+UPDATE PEOPLE SET [name] = 'DREW', [city] = 'NEW YORK CITY' WHERE id = 1;
+```
+
+#### DELETE
+*Deletes existing Rows in a table The FROM keyword is followed by the table name whose rows are to be deleted*
+
+```sql
+DELETE FROM PEOPLE WHERE name = 'DREW';
+```
+
+TRUNCATE statement deletes all rows from a table  
+
+```mysql
+TRUNCATE TABLE PEOPLE
+```
+
+MERGE statement selects data from one table called the source and inserts the data into another table called the target 
+
+## Primary Keys
+
+*A column or group of columns used to identify a row, the primary key is usually the tables first column*
+
+Primary key must be unique and Not NULL
+
+##### SIMPLE PRIMARY KEY
+- consists of a single column.
+  
+##### COMPOSITE PRIMARY KEY
+- consists of multiple columns.
+
+
+#### AUTO INCREMENT COLUMNS 
+*A numeric column that is assigned an automatically incrementing value when a new row is inserted* 
+
+- defined by AUTO_INCREMENT keyword which follows the CREATE TABLE statement
+
+*Database users occasionally make the following errors when inserting primary keys*
+
+- Inserting values for auto increment primary keys
+- omitting values for primary keys that are not auto increment columns
+
+MySQL allows insertion of a specific value to an auto increment column however overriding auto increment for a primary key is usually a mistake 
+
+
