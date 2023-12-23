@@ -214,10 +214,39 @@ SELECT Name FROM City WHERE Populatiopn > 1000;
 
 - CREATE DATABASE *Database Name* - creates a new database 
 - DROP DATABASE *Database Name* - deletes a database and all data in it i.e rows, columns etc
-
-
-Hello
+- ALTER TABLE - adds deletes or modifies columns on an existing table
 
 
 
 
+| ALTER TABLE CLAUSE| DESCRIPTION| SYNTAX|
+| :-----| :----:| ---:|
+| ADD| Adds Column| ALTER TABLE *TableName* ADD *ColumnName* *DataType* ; |
+| CHANGE| Modifies Column| ALTER TABLE *TableName* CHANGE *CurrentColumnName* *NewColumnName* *NewDataType* ; |
+|Drop| Deletes A column| ALTER TABLE *TableName* DROP *ColumnName* ; |
+
+
+## Tables
+
+Tables, Columns and rows
+All data in relational database is structured in tables
+
+- Table - has a name, fixed sequence of columns and a varying set of rows
+- Column - has name and data type
+- Row - unnamed sequence of values, each value corresponds to a column and belongs the the columns data type
+- Cell - is a single column of a single row
+
+
+**Rules Governing Tables**
+
+- No Row Order - Rows are not ordered the organization of rows ona. storage device sucha s disk drive never affects query results 
+
+
+## Data Types
+
+*Data type is a named set of values from which column values are drawn.*
+
+
+- Integer - Data types represent positive and negative numbers. Several kind exist based on number of bytes needed to allocate for each value
+	- INT - implemented as 4 bytes of storage
+	- SMALLINT - implemented as 2 bytes of storage 
