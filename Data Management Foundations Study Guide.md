@@ -216,6 +216,8 @@ SELECT Name FROM City WHERE Populatiopn > 1000;
 - DROP DATABASE *Database Name* - deletes a database and all data in it i.e rows, columns etc
 
 
+Hello
+
 
 
 
