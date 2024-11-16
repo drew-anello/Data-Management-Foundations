@@ -116,7 +116,6 @@ To simplify use of SQL with a general purpose language, database programs typica
 
 
 
-
 ## MYSQL 
 
 
@@ -188,7 +187,6 @@ Example of query and syntax
 ```sql 
 SELECT Name FROM City WHERE Populatiopn > 1000;
 ```
-
 
 
 
@@ -360,5 +358,209 @@ Primary key must be unique and Not NULL
 - omitting values for primary keys that are not auto increment columns
 
 MySQL allows insertion of a specific value to an auto increment column however overriding auto increment for a primary key is usually a mistake 
+
+
+## Foreign Keys
+
+*A column or group of columns that refer to a primary key*
+
+
+
+#### FOREIGN KEY constraint
+
+*When a **FOREIGN KEY**  constraint is specified the database rejects insert, update and delete statements that violate referential integrity.*
+
+
+## Referential Integrity
+
+*Referential Integrity* is a relational rule that requires foreign key values are either fully NULL or match some primary key value. 
+
+
+#### Referential integrity Actions
+
+- **RESTRICT** - rejects an insert, update or delete that violates referential integrity
+- **CASCADE** - propagates primary key changes to foreign keys. 
+
+
+## Constraints 
+
+*A rule that governs allowable values in a database. Constraints are based on relational and business rules*
+
+
+#### Constraints examples 
+
+- NOT NULL
+- DEFAULT
+- PRIMARY KEY
+- FOREIGN KEY
+
+
+#### UNIQUE constraint 
+
+*Ensures that the values in a column or group of columns are unique.*
+
+#### CHECK constraint 
+
+*Specifies an expression on one or more columns of a table*
+
+#### Adding and dropping constraints
+
+Constraints are added and dropped with the ALTER TABLE Table name followed by an ADD, DROP or CHANGE clause. 
+
+
+## Special Operators and Clauses
+
+#### Between operator 
+
+**Between Operator provides an alternative way to determine if a value is between two other values.**
+
+#### Like Operator
+
+**When used in a where cause, Matches text against a pattern using the two wildcard characters % and __**
+
+
+#### Order BY clause 
+
+**orders selected rows by one or more columns in ascending (alphabetic or increasing order) The DESC keyword with the ORDER BY clause orders rows in descending order.**
+
+### Function
+
+|FUNCTION|DESCRIPTION|EXAMPLE|
+|:-|:-:|-:|
+|ABS(*n*)|Returns absolute value of *n*|SELECT ABS(-5) returns 5|
+|LOWER(s)| returns the lowercase string| SELECT LOWER("MYSQL"); > returns 'mysql'|
+|TRIM(s)| Returns the string s without leading and trailing spaces| SELECT TRIM ('           ________test____     '); > returns 'test'|
+|HOUR(t), MINUTE(t), SECOND(t)| returns the hour, minuet or second from time t| SELECT HOUR('22:11:45'); returns 22 SELECT MINUTE('22:11:45'); returns 11 SELECT SECOND('22:11:45'); returns 45 |
+
+
+## AGGREGATE FUNCTIONS 
+*Processes values from a set of rows and returns a summary value.*
+
+- COUNT() - counts the number of rows in the set
+- MIN() finds the minimum value in the set
+- MAX() finds the maximum value in the set
+- SUM() finds the all the values in the set
+- AVG() computes the arithmetic mean of all the values in a set. 
+  
+#### Having Clause
+*Used with the GROUP BY clause to filter group results*
+
+## Join Queries
+
+*A SELECT statement that combines data from two tables known as the left table and the right table, into a single result. The tables are combined by comparing columns from the left and right tables, usually with the = operator*
+
+*A column name can be replaced with an alias. The alias follows the column name, seperated by an optional AS keyword*
+
+
+### INNER JOIN and FULL JOINS
+
+- INNER JOIN selects only matching left and right table rows
+- FULL JOIN selects all left and right table rows regardless of match. 
+
+### LEFT JOIN and RIGHT JOINS
+
+- LEFT JOIN selects all left table rows but only matching right tbale rows.
+- RIGHT JOIN slects all right tbale rows, but only matching left tbale rows. 
+
+*AN outer join is any hjoin that selects unmatched rows, including left, right and full joins* 
+*UNION KEYWIORD combines the two results into one table*
+
+
+#### EQUIJOINS 
+*An equijoin compares columns of two tables with the = operator. Most joins are equijoins a NON-EQUIJOIN compares columns with an operator other than = such as < and >*
+
+#### SELF JOINS 
+*A self-join joins a table to itself*
+
+#### CROSS JOINS
+*Cross joins combine two tables without comparing columns a cross join uses a CROSS JOIN clause without an ON clause.* 
+
+
+## SUBQUERIES 
+*Subquery sometimes called a nested query or inner query is a query within another sql query.*
+
+*Alias is a temporary name assigned to a column or table. The AS keyword follows a column or table name to create an alias*
+
+
+## COMPLEX QUERY EXAMPLE 
+
+*In some databases view, data can be stored. A materialized view is a view for which data is stored at all times. whenever a base table changes the corresponding view tables can also change, so materialized views must be refreshed. *
+
+
+#### WITH CHECK OPTION
+
+when with check option is specified the database rejects inserts and updates that do not satisfy the view query WHERE clause. 
+
+
+
+## ENTITY RELATIONSHIPS AND ATTRIBUTES 
+
+*high level overview of data requirements ignoring implementation details*
+
+
+
+#### ANALYSIS STEPS 
+
+1. discover entities, relationships and attributes
+2. Determine cardinality 
+3. distinguish strong and weak entities 
+4. create supertype and subtype entities
+
+#### LOGICAL DESIGN STEPS
+
+5. implement entities 
+6. implement relationships
+7. implement attributes 
+8. apply normal form 
+
+
+## CARDINALITY
+
+*refers to maxima and minima of relationships and attributes*
+
+**Relationship maximum** - the greatest number of instances of one entity that can relate to a single instance
+
+**Relationship minimum** - the least number of instances of one entity that can relate to a single instance of another entity. 
+
+
+*in ER Diagrams, attribute maximum and minimum follow the attribute name. the minimum appears in parentheses*
+
+
+
+## SUPERTYPE AND SUBTYPE ENTITIES
+
+*A subtype entity is a subset of another entity type called the supertype entity*
+
+
+*The identifying relationship is called an IsA relationship*
+
+
+**Partition** - a group of mutually exclusive subtype entities
+
+#### DATABASE DESIGN 
+
+- After entities relationships attributes cardinality and strong and weak entities are determined the database designer looks for supertype and subtype entities
+- Creating supertype and subtypes entities is the last of four analysis steps
+- Logical design converts an entity relationship model to tables, columns and keys for a specific database system
+
+
+## Alternative modeling conventions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
